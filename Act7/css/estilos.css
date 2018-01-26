@@ -1,0 +1,181 @@
+/* Globales */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    margin-top: 30px;
+}
+
+h2{
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Menu principal */
+
+.contenedor{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.barra{
+    background-color: #353535;
+    padding: 20px 0;
+}
+
+div.logo{
+    width: 33%;
+    float: left;
+}
+
+img{
+    width: 150px;
+    margin-left: 30px;
+}
+
+nav.navPrincipal{
+    width: 67%;
+    float: right;
+    text-align: right;
+}
+
+nav.navPrincipal a{
+    font-size: 21px;
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: sans-serif, serif;
+    transition: all .3s ease;
+    display: inline-block;
+}
+
+nav.navPrincipal a:hover{
+    background-color: #28b7ce;
+    padding: 10px 20px;
+}
+
+/* Desplegable */
+
+div.desplegable{
+    width: 40px;
+    display: none;
+    margin-top: 12px;
+}
+
+div.desplegable:hover{
+    cursor: pointer;
+    
+}
+
+div.desplegable span{
+    height: 8px;
+    margin-bottom: 6px;
+    background-color: #353535;
+    display: block;
+}
+
+/* Tabla con la informacion de los paises */
+
+table, tbody, td, tr{
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+table{
+    box-shadow: 0 4px 15px 0 rgba(0,0,0,0.4), 0 4px 20px 0 rgba(0,0,0,0.25);
+}
+
+thead{
+    background-color: #9BBDDF /*#97AABE*/;
+}
+
+td{
+    padding: 5px;
+}
+
+.lineas{
+    background-color: #DCF7FF;
+}
+
+/* Tabla 1 */
+
+#tabla1{
+    display: inline-block;
+    margin: 50px 20px 20px 160px;
+}
+
+#tabla1.tablaGrande{
+    margin: 50px 20px 20px 80px;
+}
+
+/* Tabla 2 */
+#tabla2{
+    display: inline-block;
+    float: right;
+    margin: 50px 160px 20px 20px;
+}
+
+
+#tabla2.tablaGrande{
+    margin: 50px 80px 20px 20px;
+}
+
+/* Footer */
+
+div.contenedorFooter{
+    background-color: #353535;
+    height: 150px;
+    padding-top: 10px;
+    
+}
+
+nav.navFooter a{
+    text-decoration: none;
+    color: #ffffff;
+    font-family: sans-serif, serif;
+    transition: all .3s ease;
+    display: block;
+    padding: 5px 10px;
+    width: 157px;
+    margin: 5px 50px;
+}
+
+nav.navFooter a:hover{
+    background-color: #28b7ce;
+    padding: 5px 10px;
+}
+
+nav.navFooter a:first-child{
+    margin-top: 20px;
+}
+
+/* Página de superficie */
+
+div.contenedorImg{
+    background-image: url(../img/mapa2.jpg);
+    height: 90vh;
+    background-position: top center;
+    background-size: cover;
+    /*margin: 0 90px;*/
+}
+
+/* Clearfix area **/
+
+.clearfix:before,
+.clearfix:after {
+    content: ''; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*#009874 verde  #28b7ce azul logo 
+#dfdfdf gris pa tabla #d3dce3 azul pa tablas
+*/
