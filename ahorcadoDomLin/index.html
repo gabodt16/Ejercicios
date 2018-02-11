@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/estilos.css">
+        
+        <title>Ahorcado Dom</title>
+    </head>
+
+    <body>
+        <h1>Bienvenido al Ahorcado Dom</h1>
+        
+        <h3>¿Estas listo para juegar?</h3>
+        <p class="instrucciones">Las reglas son fáciles, tienes que adivinar la palabra poniendo letra por letra hasta que logres descubrir cual es, tienes <span>5</span> intentos, cada vez que falles perderas <span>1</span>. Procura solo escribir letras los demás caracteres no son válidos. ¡Suerte... a ver si adivinas... <span>JA!</span></p>
+        
+        
+       <h3>Tienes <span id="intentos">5</span> intentos</h3>
+        
+        <h1 id="mensajeFinal"></h1>
+                
+        
+        <form>
+           
+            <label for="letra">Pon una letra a ver si la pegas:</label>
+            <input type="text" id="letra" name="letras" maxlength="1" size="5px" autofocus autocomplete="off" onkeypress="return mostrarPal1(event)" type= "disabled">
+            
+            <p class="ajustado">La palabra es: </p>
+            
+            <p id="palabra"></p><br>
+            
+            <p class="p_utilizadas">Letras utilizadas: <span id="utilizadas"></span></p>
+            
+            <input type="button" value="Prueba suerte!" id="boton" onclick="mostrarPal()" style="display: inline">
+            
+            <input id="refrescar" type="button" value="refrescar" onclick="repetir()" style="display: none"/>
+            
+            
+        </form>
+        <br><br><br>
+        
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>
