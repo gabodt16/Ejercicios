@@ -11,10 +11,10 @@
        <p>Los Ids que hay disponible son: 1, 75, 83, 84 y 85</p>
        <p>El error es solo porque está en espera de introducir el ID correspindiente</p>
        
-        <form action="muestraUsuario.php" method="get">
+        <form action="muestraUsuario.php?busqueda=true" method="post">
             
             <label for="id">Id del Usuario que desea buscar</label>
-            <input type="text" name="id" id="id">
+            <input type="text" name="id" id="id" autofocus required>
             <br><br>
             
             <input type="submit" value="Enviar">
@@ -23,11 +23,17 @@
         
         <?php
         
+        
             $conector = new mysqli('localhost', 'root', '', 'juegos');
             if($conector->connect_errno){
                 echo "Fallo al conectar a MySQL: ". $conector->connect_errno;
             }else{
-                $ids=$_GET["id"];
+                
+                
+                function buscarUsuario(){
+                
+                $conector = new mysqli('localhost', 'root', '', 'juegos');
+                $ids=$_POST["id"];
                 $consulta="SELECT* From usuarios WHERE id='".$ids."'";
                 echo $consulta. "<br>";
             
@@ -50,6 +56,11 @@
                 }
         
             }
+                
+            if (isset($_GET['busqueda'])) {
+                buscarUsuario();
+            }
+            }
         ?>
         
                 </tbody>
@@ -57,6 +68,9 @@
         </div>
         
         <a href="insertarUsuario.php">Añadir otro usuario</a>
+        <a href="actualizarUsuario.php">Actualizar a un usuario</a>
+        <a href="borrarUsuario.php">Borrar Usuarios</a>
+        <a href="listadoUsuarios.php?listado=true">Ver todos los usuarios</a>
         
     </body>
 </html>

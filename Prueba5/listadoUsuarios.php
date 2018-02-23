@@ -8,65 +8,117 @@
 
     <body>
         <?php
-            $cont = 1;
+            
         
             $conector = new mysqli('localhost', 'root', '', 'juegos');
             if($conector->connect_errno){
                 echo "Fallo al conectar a MySQL: ". $conector->connect_errno;
             }else{
-                $nombre=$_POST["nombre"];
-                $apellido=$_POST["apellido"];
-                $edad=$_POST["edad"];
-                $curso=$_POST["curso"];
-                $correo=$_POST["correo"];
-                $consulta="INSERT INTO usuarios (Nombre, Apellido, Edad, Curso, Correo) VALUES('".$nombre."', '".$apellido."', '".$edad."', '".$curso."', '".$correo."')";
-                echo $consulta. "<br>";
-                $consulta2="SELECT * FROM usuarios";
+                
+                function actualizar(){
+                    $conector = new mysqli('localhost', 'root', '', 'juegos');
+                    $id=$_POST["id"];
+                    $new_nombre=$_POST["new_nombre"];
+                    $new_apellido=$_POST["new_apellido"];
+                    $new_edad=$_POST["new_edad"];
+                    $new_curso=$_POST["new_curso"];
+                    $new_correo=$_POST["new_correo"];
+                    $consultaUpdate="UPDATE usuarios SET Nombre = '".$new_nombre."', Apellido = '".$new_apellido."', Edad = ".$new_edad.", Curso = '".$new_curso."',  Correo = '".$new_correo."' WHERE id = ".$id."";
+                    echo $consultaUpdate. "<br>";
+                    
+                    $resultado = $conector->query($consultaUpdate);
+                    mostrarListado();
+                }
+                
+             
+                function insertar(){
+                    
+                    
+                    $conector = new mysqli('localhost', 'root', '', 'juegos');    
+                    $nombre=$_POST["nombre"];
+                    $apellido=$_POST["apellido"];
+                    $edad=$_POST["edad"];
+                    $curso=$_POST["curso"];
+                    $correo=$_POST["correo"];
+                    $consulta="INSERT INTO usuarios (Nombre, Apellido, Edad, Curso, Correo) VALUES('".$nombre."', '".$apellido."', '".$edad."', '".$curso."', '".$correo."')";
+                    echo $consulta. "<br>";
+    
+
+                    $resultado = $conector->query($consulta);
+                    mostrarListado();
+
+                }
             
-                $resultado = $conector->query($consulta);
-                $resultado1 = $conector->query($consulta2);
+                function borrar(){
+                    $conector = new mysqli('localhost', 'root', '', 'juegos');
+                    $id=$_POST["id"];
+                    $consulta="DELETE FROM usuarios WHERE id = ".$id."";
+                    echo $consulta. "<br>";
+    
+
+                    $resultado = $conector->query($consulta);
+                    mostrarListado();
+                }
+            
                 
                 
+                if (isset($_GET['insertar'])) {
+                    insertar();
+                }else if(isset($_GET['actualizar'])){
+                    actualizar();
+                }else if(isset($_GET['borrar'])){
+                    borrar();
+                }elseif(isset($_GET['listado'])){
+                    mostrarListado();
+                }
+            }
+            ?>
+                
+                
+            <?php
+        
+            /* DELETE FROM `usuarios` WHERE `usuarios`.`id` = 35;*/        
+            
+                function mostrarListado(){
+                    $cont = 1;
+                    $conector = new mysqli('localhost', 'root', '', 'juegos');
+                    $consulta2="SELECT * FROM usuarios";
+                    $resultado1 = $conector->query($consulta2);
+                    
             ?>
             
-            <div id="tabla1">
-            <table>
+        <div id="tabla1">
+        <table>
 
-                <thead>
-                    <tr> <td>ID</td> <td>Nombre</td> <td>Apellido</td> <td>Edad</td> <td>Curso</td> <td>Correo</td> <td>Puntuación</td></tr>
-                </thead>
+            <thead>
+                <tr> <td>ID</td> <td>Nombre</td> <td>Apellido</td> <td>Edad</td> <td>Curso</td> <td>Correo</td> <td>Puntuación</td></tr>
+            </thead>
 
-                <tbody>
+            <tbody>
             
             
             <?php
 
-                foreach($resultado1 as $fila){
-                    if (($cont % 2) == 0){
-                            if($fila['Puntuacion'] == NULL){
-                                echo "<tr class='lineas'>". "<td>". $fila['id']. "</td>". "<td>". $fila['Nombre']. "</td>". "<td>". $fila['Apellido']. "</td>". "<td>". $fila['Edad']. "</td>".  "<td>". $fila['Curso']. "</td>". "<td>". $fila['Correo']. "</td>". "<td>". 0 . "</td>"."</tr>";
-                            }else{
+                    foreach($resultado1 as $fila){
+                        if (($cont % 2) == 0){
                                 echo "<tr class='lineas'>". "<td>". $fila['id']. "</td>". "<td>". $fila['Nombre']. "</td>". "<td>". $fila['Apellido']. "</td>". "<td>". $fila['Edad']. "</td>".  "<td>". $fila['Curso']. "<td>". $fila['Correo']. "</td>". "</td>". "<td>". $fila['Puntuacion']. "</td>"."</tr>";
-                            }
-                    }else{
-                        if($fila['Puntuacion'] == NULL){
-                            echo "<tr>". "<td>". $fila['id']. "</td>". "<td>". $fila['Nombre']. "</td>". "<td>". $fila['Apellido']. "</td>". "<td>". $fila['Edad']. "</td>".  "<td>". $fila['Curso']. "<td>". $fila['Correo']. "</td>". "</td>". "<td>". 0 . "</td>"."</tr>";
                         }else{
                             echo "<tr>". "<td>". $fila['id']. "</td>". "<td>". $fila['Nombre']. "</td>". "<td>". $fila['Apellido']. "</td>". "<td>". $fila['Edad']. "</td>".  "<td>". $fila['Curso']. "<td>". $fila['Correo']. "</td>". "</td>". "<td>". $fila['Puntuacion']. "</td>"."</tr>";
                         }
+                        $cont++;
                     }
-                    $cont++;
                 }
-                
-            }
-        
-            /* DELETE FROM `usuarios` WHERE `usuarios`.`id` = 35;*/        
+                   
             ?>
+            
+            
+            </tbody>
+        </table><!-- fin de la tabla 1 para estructurar la consulta de php -->
+        </div>  
         
-                </tbody>
-            </table> <!-- fin de la tabla 1 para estructurar la consulta de php -->
-        </div>
-           
         <a href="insertarUsuario.php">Añadir otro usuario</a>
+        <a href="actualizarUsuario.php">Actualizar a un usuario</a>
+        <a href="muestraUsuario.php">Buscar a un usuario</a>
+        <a href="borrarUsuario.php">Borrar Usuarios</a>
     </body>
 </html>
