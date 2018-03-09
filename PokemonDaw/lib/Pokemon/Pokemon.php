@@ -57,7 +57,7 @@
             
             if($num == 1){
                 $this->element="Fuego";
-                $this->debilidad="Agua y Piedra";
+                $this->debilidad="Agua y Piera";
                 return $this->element;
             }elseif($num == 2){
                 $this->element="Agua";
@@ -73,7 +73,7 @@
                 return $this->element;
             }elseif($num == 5){
                 $this->element="Psíquico";
-                $this->debilidad="Fuego y Piedra";
+                $this->debilidad="Fuego";
                 return $this->element;
             }elseif($num == 6){
                 $this->element="Matitas";

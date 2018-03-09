@@ -1,23 +1,25 @@
 /* Globales */
 body{
     text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 h1{
     margin-top: 100px;
 }
 
-/* Formulario */
-
-.formulario{
-    margin: 100px 0;
-}
-
-label{
-    margin: 10px 5px 15px 15px;
-}
-
 /* Tabla */
+div#tabla1{
+    display: inline-block;
+    margin-left: 5%;
+}
+
+div#tabla2{
+    display: inline-block;
+    text-align: right;
+    margin-left: 18%;
+}
 
 table, tbody, td, tr{
     border: solid 1px;
@@ -34,7 +36,7 @@ thead{
 }
 
 td{
-    padding: 5px;
+    padding: 15px;
 }
 
 .lineas{
@@ -62,4 +64,15 @@ a{
 a:hover{
     color: #ffffff;
     background-color: #6D6D6D;
+}
+
+span.habilidad{
+    text-align: left;
+    margin-right: 20px;
+}
+
+span.puntos{
+    text-align: right;
+    font-weight: bold;
+    float: right;
 }

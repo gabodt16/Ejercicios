@@ -6,7 +6,7 @@
     class Gabo extends Pokemon{
 
         private $habilidad="Puños ladilla";
-        private $descripcion="Ataque rápido y multiple que aturde y desconcierta a los demás PokemonDaw";
+        private $descripcion="Ataque multiple y a gran velocidad que aturde y desconcierta a los demás PokemonDaw";
         private $puntos=40;
         private $img="gabo.png";
 
@@ -16,8 +16,8 @@
             parent::elemYdebil(3);
             
             $this->habilidad="Puños ladilla";
-            $this->descripcion="Ataque rápido y multiple que aturde y desconcierta a los demás PokemonDaw";
-            $this->puntos=0;
+            $this->descripcion="Ataque multiple y a gran <br> velocidad que aturde y <br> desconcierta a los demás <br> PokemonDaw";
+            $this->puntos=40;
             $this->img="gabo.png";
         }
 
@@ -33,10 +33,6 @@
 
         public function getDescrip(){
             return $this->descripcion;
-        }
-
-        public function setPuntos($valor){
-            $this->puntos=$valor;
         }
 
         public function getPuntos(){
