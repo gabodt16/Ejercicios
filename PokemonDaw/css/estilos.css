@@ -13,18 +13,20 @@ h1{
 div#tabla1{
     display: inline-block;
     margin-left: 5%;
+    margin-top: 2%;
 }
 
 div#tabla2{
     display: inline-block;
     text-align: right;
     margin-left: 18%;
+    margin-top: 2%;
 }
 
 table, tbody, td, tr{
     border: solid 1px;
     border-collapse: collapse;
-    margin: 100px auto;
+    margin: 30px auto 0 auto;
 }
 
 table{
@@ -75,4 +77,8 @@ span.puntos{
     text-align: right;
     font-weight: bold;
     float: right;
+}
+
+img{
+    width: 300px;
 }

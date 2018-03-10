@@ -8,7 +8,7 @@
         private $habilidad="Puños ladilla";
         private $descripcion="Ataque multiple y a gran velocidad que aturde y desconcierta a los demás PokemonDaw";
         private $puntos=40;
-        private $img="gabo.png";
+        private $img="img/gabo.png";
 
         function __construct(){
             parent::setNombre("Primeabo");
@@ -18,7 +18,7 @@
             $this->habilidad="Puños ladilla";
             $this->descripcion="Ataque multiple y a gran <br> velocidad que aturde y <br> desconcierta a los demás <br> PokemonDaw";
             $this->puntos=40;
-            $this->img="gabo.png";
+            $this->img="img/gabo.png";
         }
 
         //Getters y setters
@@ -37,6 +37,10 @@
 
         public function getPuntos(){
             return $this->puntos;
+        }
+        
+        public function getImg(){
+            return $this->img;
         }
     
     }

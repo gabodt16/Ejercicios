@@ -79,8 +79,12 @@
                 $this->element="Matitas";
                 $this->debilidad="Psíquico";
                 return $this->element;
+            }elseif($num == 7){
+                $this->element="Normal";
+                $this->debilidad="Piedra";
+                return $this->element;
             }else{
-                return "Error, solo existen los valores del 1 al 6";
+                return "Error, solo existen los valores del 1 al 7";
             }
             
         }

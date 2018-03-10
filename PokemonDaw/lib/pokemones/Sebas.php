@@ -8,7 +8,7 @@
         private $habilidad="Desvario divagador";
         private $descripcion="Crea confusion entre <br> los pokemones y tiene <br> probabilidad de que el <br> adversario se ataque a si mismo";
         private $puntos=45;
-        private $img="gabo.png";
+        private $img="img/Sebas.png";
 
         function __construct(){
             parent::setNombre("Alsebazam");
@@ -18,7 +18,7 @@
             $this->habilidad="Desvario divagador";
             $this->descripcion="Crea confusion entre <br> los pokemones y tiene <br> probabilidad de que el <br> adversario se ataque a si mismo";
             $this->puntos=45;
-            $this->img="Sebas.png";
+            $this->img="img/Sebas.png";
         }
 
         //Getters y setters
@@ -37,6 +37,10 @@
 
         public function getPuntos(){
             return $this->puntos;
+        }
+        
+        public function getImg(){
+            return $this->img;
         }
     
     }
